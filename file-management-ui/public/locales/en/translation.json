@@ -1,0 +1,66 @@
+{
+	"Navbar": {
+		"default": {
+			"title": "F-Manager"
+		},
+		"mobile": {
+			"language": "Language",
+			"theme": "Change Theme",
+			"dashboard": "Dashboard",
+			"search-box": "Search..."
+		}
+	},
+	"Footer": {
+		"about": "About",
+		"privacy-policy": "Privacy Policy",
+		"licensing": "Licensing",
+		"contact": "Contact"
+	},
+	"Home": {
+		"title": "Home Page",
+		"topic": "Documents Management System",
+		"input-search": "Search...",
+		"data-not-found": "Document NotFound",
+		"table": {
+			"doc-id": "Document Id",
+			"doc-name": "Document Name",
+			"file-size": "File Size",
+			"doc-type": "Category",
+			"actived-date": "Actived Date"
+		},
+		"pagination": {
+			"filter-perpage-title1": "Display",
+			"filter-perpage-title2": "Data / Page"
+		}
+	},
+	"Search": {
+		"title": "Search documents",
+		"topic": "Document Results",
+		"input-search": "Search...",
+		"data-not-found": "Document NotFound",
+		"filter-search": {
+			"title": "Filter Documents",
+			"document-id": "Document Id",
+			"document-name": "Document Name",
+			"label-from-date": "From",
+			"label-to-date": "To",
+			"search-button": "SEARCH"
+		},
+		"table": {
+			"doc-id": "Document Id",
+			"doc-name": "Document Name",
+			"file-size": "File Size",
+			"actived-date": "Actived Date"
+		},
+		"pagination": {
+			"filter-perpage-title1": "Display",
+			"filter-perpage-title2": "Data / Page"
+		}
+	},
+	"NotFound": {
+		"title": "Page Not Found"
+	},
+	"Loader": {
+		"title": "Waiting..."
+	}
+}

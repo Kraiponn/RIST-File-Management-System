@@ -1,0 +1,67 @@
+{
+	"Navbar": {
+		"default": {
+			"title": "F-Manager",
+		"topic": "ระบบจัดการเอกสาร"
+		},
+		"mobile": {
+			"language": "เปลี่ยนภาษา",
+			"theme": "สีพื้น",
+			"dashboard": "แผงควบคุม",
+			"search-box": "ค้นหา..."
+		}
+	},
+	"Footer": {
+		"about": "เกี่ยวกับ",
+		"privacy-policy": "นโยบาย",
+		"licensing": "ลิขสิทธิ์",
+		"contact": "ติดต่อ"
+	},
+	"Home": {
+		"title": "หน้าหลัก",
+		"topic": "ระบบจัดการเอกสาร",
+		"input-search": "ค้นหาเอกสาร...",
+		"data-not-found": "ไม่พบเอกสารตามที่ค้นหา",
+		"table": {
+			"doc-id": "รหัสเอกสาร",
+			"doc-name": "ชื่อเอกสาร",
+			"file-size": "ขนาดเอกสาร",
+			"doc-type": "หมวดหมู่",
+			"actived-date": "วันอัปโหลด"
+		},
+		"pagination": {
+			"filter-perpage-title1": "แสดงข้อมูล",
+			"filter-perpage-title2": "ค่า / หน้า"
+		}
+	},
+	"Search": {
+		"title": "ผลการค้นหา",
+		"topic": "ผลการค้นหาเอกสาร",
+		"input-search": "ค้นหาเอกสาร...",
+		"data-not-found": "ไม่พบข้อมูล",
+		"filter-search": {
+			"title": "เลือกรูปแบบผลลัพท์",
+			"document-id": "รหัสเอกสาร",
+			"document-name": "ชื่อเอกสาร",
+			"label-from-date": "จาก",
+			"label-to-date": "ถึง",
+			"search-button": "เริ่มค้นหา"
+		},
+		"table": {
+			"doc-id": "รหัสเอกสาร",
+			"doc-name": "ชื่อเอกสาร",
+			"file-size": "ขนาดเอกสาร",
+			"actived-date": "วันอัปโหลด"
+		},
+		"pagination": {
+			"filter-perpage-title1": "แสดงข้อมูล",
+			"filter-perpage-title2": "ค่า / หน้า"
+		}
+	},
+	"NotFound": {
+		"title": "ไม่พบหน้าที่คุณค้นหา"
+	},
+	"Loader": {
+		"title": "รอซักครู่..."
+	}
+}

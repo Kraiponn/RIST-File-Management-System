@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Prompt-Thin';
+  src: local('Prompt-Thin'), url(./assets/fonts/Prompt-Thin.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Prompt-Italic';
+  src: local('Prompt-Italic'), url(./assets/fonts/Prompt-Italic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Prompt-Regular';
+  src: local('Prompt-Regular'), url(./assets/fonts/Prompt-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Prompt-Medium';
+  src: local('Prompt-Medium'), url(./assets/fonts/Prompt-Medium.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Prompt-SemiBold';
+  src: local('Prompt-SemiBold'), url(./assets/fonts/Prompt-SemiBold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Prompt-Bold';
+  src: local('Prompt-Bold'), url(./assets/fonts/Prompt-Bold.ttf) format('truetype');
+}
+
+@layer components {
+	.modal-close-button {
+		@apply absolute py-2 mr-auto text-xs bg-blue-600 rounded-md font-PromptSemiBold md:text-sm px-9 text-zinc-50 hover:bg-blue-700;
+	}
+
+	.customDatePickerWidth, 
+	.customDatePickerWidth > div.react-datepicker-wrapper, 
+	.customDatePickerWidth > div > div.react-datepicker__input-container
+	.customDatePickerWidth > div > div.react-datepicker__input-container input {
+		width: 100%;
+	}
+}
