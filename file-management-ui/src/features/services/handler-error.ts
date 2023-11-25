@@ -1,45 +1,33 @@
 import { AxiosError } from 'axios';
 
-function getResponseMessage(error: AxiosError) {
+function getResponseMessage(error: AxiosError, locale: 'en' | 'th') {
 	const response = error.response;
 	let message = '';
 
+	// console.log(response?.data)
 	if(response?.status === 400)
-		message = 'Something went wrong. Please try again. - (400)';
+		message = locale === 'en' ? 'Something went wrong. Please try again. - (400)' : `มีบางสิ่งผิดพลาด, รูปแบบการร้องขอไม่ถูกต้อง หรือโปรดลองอีกครั้ง - (400)`
 	else if(response?.status === 403)
-		message = 'Unauthorized. try a different query. - (403)';
+		message = locale === 'en' ? 'Unauthorized. try a different query. - (403)' : `ไม่ได้รับอนุญาติการเข้าถึง อาจเนื่องมาจากการจำกัดสิทธิสำหรับบางบัญชี - (403)`
 	else if(response?.status === 404)
-		message = 'Notthing found. try a different query. - (404)';
+		message = locale === 'en' ? 'Notthing found. try a different query. - (404)' : `ไม่พบข้อมูลตามที่คุณร้องขอ โปรดลองใช้คำค้นหาอื่น - (404)`
 	else if(response?.status === 500)
-		message = 'Something went wrong from server. - (500)';
+		message = locale === 'en' ? 'Something went wrong from server. - (500)' : `มีบางสิ่งผิดพลาด หรืออาจเนื่องมาจากฝั่งผู้ให้บริการมีปัญหา - (500)`
 	else
-		message = 'Something went wrong. Please try again.';
+		message = locale === 'en' ? 'Something went wrong. Please try again.' : `มีบางสิ่งผิดพลาด โปรดลองใหม่อีกครั้ง`
 
 	return message;
 }
 
-export const getErrorResponse = (error: AxiosError) => {
+export const getErrorResponse = (error: AxiosError, locale: 'en' | 'th') => {
 	let errMessage = '';
 
 	if (error.response) {
-		// The request was made and the server responded with a status code
-		// that falls out of the range of 2xx
-		// console.log(error.response.data);
-		// console.log(error.response.status);
-		// console.log(error.response.headers);
-
-		errMessage = getResponseMessage(error);
+		errMessage = getResponseMessage(error, locale);
     } else if (error.request) {
-		// The request was made but no response was received
-		// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-		// http.ClientRequest in node.js
-		// console.log(error.request);
-
-		errMessage = `Response error at request api`
+		errMessage = locale === 'en' ? `Error at request api` : 'ผิดพลาดจากการร้องขอข้อมูลจากผู้ให้บริการ'
     } else {
-		// Something happened in setting up the request that triggered an Error
-		// console.log('Error', error.message);
-		errMessage = `Response error at ${error.message}`
+		errMessage = locale === 'en' ? `Error at ${error.message}` : `ผิดพลาด : ${error.message}`
     }
 
 	return errMessage || '';

@@ -1,15 +1,18 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
 import App from './App.tsx'
 import "react-datepicker/dist/react-datepicker.css";
 import 'dayjs/locale/en'
 import './index.css'
+import 'react-toastify/dist/ReactToastify.css';
 import "./i18n.ts"
 import Loading from '@/components/Shared/Loaders/Loading.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+	<ToastContainer />
 	<BrowserRouter>
 		<Suspense fallback={
 			<Loading 

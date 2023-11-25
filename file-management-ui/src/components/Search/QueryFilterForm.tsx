@@ -1,15 +1,13 @@
 import { useState } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
-
-// import TextField from '@/components/Shared/Inputs/TextField'
-import DatePicker from 'react-datepicker'
 import { useTranslation } from "react-i18next"
-import { useNavigate } from "react-router-dom"
+import { useDocumentAPI } from "@/features/store"
+import { useNavigate, useSearchParams } from "react-router-dom"
+import DatePicker from 'react-datepicker'
 import * as dayjs from "dayjs"
 
 
 interface ISearchForm {
-	docId: string,
 	docName: string,
 }
 
@@ -22,19 +20,23 @@ interface IDateFilter {
  * 														 	  MAIN FUNCTION																		*
  *******************************************************************************************/
 export default function QueryFilterForm() {
-	const [dateFilter, setDateFilter] = useState<IDateFilter>({fromDate: new Date(), toDate: new Date()})
-	const navigate = useNavigate();
+	const [ dateFilter, setDateFilter ] = useState<IDateFilter>({fromDate: new Date(), toDate: new Date()})
+	const [ searchParams ] = useSearchParams()
+	const navigate = useNavigate()
 	const { t } = useTranslation()
+	const { setPageNo } = useDocumentAPI()
 
 	const { register, handleSubmit, formState: { errors} } = useForm<ISearchForm>()
 
-	const handleOnSubmit: SubmitHandler<ISearchForm> = ({ docId, docName }) => {
+	const handleOnSubmit: SubmitHandler<ISearchForm> = ({ docName }) => {
 		const { fromDate, toDate } = dateFilter
+		const docId = searchParams.get('query')
 		
 		const fDate = !fromDate ? '' : dayjs(fromDate).format("YYYY-MM-DD");
 		const tDate = !toDate ? '' :  dayjs(toDate).format("YYYY-MM-DD");
 
-		navigate(`/search?documentId=${docId}&documentName=${docName}&fromDate=${fDate}&toDate=${tDate}`)
+		setPageNo(1)
+		navigate(`/search?query=${docId ? docId : ""}&documentName=${docName}&fromDate=${fDate}&toDate=${tDate}`)
 	}
 
 	const handleFromDateChange = (date: Date) => {
@@ -52,16 +54,6 @@ export default function QueryFilterForm() {
 			</h1>
 			
 			<form onSubmit={handleSubmit(handleOnSubmit)}>
-				<div className="w-full">
-					<input 
-						{...register('docId')}
-						type='text' 
-						placeholder={t("Search.filter-search.document-id")}
-						className={`w-full px-2 py-[0.2rem] border-2 rounded-sm focus:ring-2 focus:ring-offset-0  ${errors.docId ? "ring-red-500 focus:ring-rose-500" : "focus:ring-blue-700"}  focus:outline-none bg-white dark:bg-gray-800 dark:border-0 dark:focus:ring-rose-500 dark:text-zinc-50`}
-					/>	
-					<p className="text-xs text-red-500 font-PromptRegular md:text-sm">{errors.docId && errors.docId.message}</p>
-				</div>
-
 				<div className="w-full my-5">
 					<input 
 						{...register('docName')}

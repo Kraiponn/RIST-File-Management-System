@@ -1,3 +1,8 @@
+export interface IDocumentForm {
+	name: string,
+	description: string,
+	documentCategoryId: string,
+}
 
 export interface IDocumentCategory {
 	documentCategoryId: string,
@@ -8,7 +13,7 @@ export interface IDocumentCategory {
 export interface IDocument {
 	documentId: string,
 	name: string,
-	description?: string,
+	description: string,
 	path?: string,
 	extension?: string
 	sizeInBytes: number,
@@ -45,6 +50,13 @@ export interface IDocumentDataResponse {
 	pageSize: number,
 	apiBaseUrl?: string,
 	results: IDocument[]
+}
+
+export interface ISingleDocumentResponse {
+	isSuccess: boolean,
+	statusCode: number,
+	errorMessage: Array<string>,
+	data: IDocument
 }
 
 export interface IDocumentResponse {

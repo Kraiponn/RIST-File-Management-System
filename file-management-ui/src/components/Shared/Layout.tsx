@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from "react"
-import { useAppTheme } from "@/features/store/ui";
+import { useAppTheme } from "@/features/store/useAppTheme";
 import { useTranslation } from "react-i18next";
 import { ThemeProvider } from "@mui/material";
 import { useMuiTheme } from "@/features/mui-theme";

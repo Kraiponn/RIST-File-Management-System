@@ -1,0 +1,56 @@
+import { useEffect } from "react";
+import { useTranslation } from 'react-i18next'
+import { useNavigate, useParams } from "react-router-dom";
+import { useToastify } from "@/components/Shared/Actions/useToastify";
+import { useDocumentAPI, useAppTheme, useCategoryAPI } from '@/features/store';
+
+import ActionResponse from '@/components/Dashboard/Common/ActionResponse'
+import BreadCrumbs from '@/components/Dashboard/Document/Edit/BreadCrumbs'
+import DocumentForm from '@/components/Dashboard/Document/Form'
+
+/*******************************************************************************************
+ * 														 	  MAIN FUNCTION																		*
+ ******************************************************************************************/
+export default function EditDocument() {
+	const { t }  = useTranslation()
+	const navigate = useNavigate()
+	const { documentId } = useParams()
+	const { callNotify } = useToastify()
+	const { locale } = useAppTheme()
+	const { isSuccess, clearError, getDocumentById } = useDocumentAPI()
+	const { getCategories } = useCategoryAPI()
+
+	useEffect(() => {
+		if(isSuccess) {
+			const successMsg = `🦄 ${t("Dashboard.progress.success", { keyword: locale === 'en' ? "File updated" : "แก้ไขข้อมูล" })}`
+			callNotify("success", successMsg, 2000)
+
+			clearError()
+			navigate('/dashboard/documents')
+		}
+	}, [callNotify, clearError, isSuccess, locale, navigate, t])
+
+	useEffect(() => {
+		getCategories(locale, 1, 1000, '')
+		getDocumentById(locale, documentId ? documentId : '')
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+	
+	return (
+		<>
+			{/*****************	*		   All action components for api response		    ******************/}
+			<ActionResponse />
+
+			{/************************			   CONTENT              *************************/}
+			<div className="w-full p-5">
+				<BreadCrumbs />		
+				
+				<h1 className='w-full text-sm text-center text-gray-800 my-7 sm:text-xl md:text-3xl font-PromptBold dark:text-zinc-50'>
+					{t(`Dashboard.documentPage.addEdit.topic`, { label: locale === 'en' ? 'Edit' : 'แก้ไข' })}
+				</h1>	
+
+				<DocumentForm processType="edit" />
+			</div>
+		</>
+	)
+}

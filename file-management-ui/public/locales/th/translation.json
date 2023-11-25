@@ -63,5 +63,117 @@
 	},
 	"Loader": {
 		"title": "รอซักครู่..."
+	},
+	"Dashboard": {
+		"title": "แผงควบคุม",
+		"modal": {
+			"infoTitle": "ลบข้อมูล",
+			"errorTitle": "!อุ๊ย..., มีบางอย่างผิดพลาด",
+			"infoDescription": "คุณแน่ใจใช่ไหมว่าจะลบข้อมูลนี้?",
+			"okButtonLabel": "ตกลง",
+			"cancelButtonLabel": "ยกเลิก"
+		},
+		"progress": {
+			"success": "{{keyword}} สำเร็จ.",
+			"error": "ผิดพลาด - {{keyword}}"
+		},
+		"navbar": {
+			"textSearchPlaceholder": "ค้นหา..."
+		},
+		"search": {
+			"notfound": {
+				"title": "ขออภัย ไม่พบผลลัพธ์สำหรับ ''{{keyword}}''",
+				"subTitle": "ลองปรับคำค้นหาของคุณ นี่คือความคิดเห็นบางส่วน:",
+				"description1": "ตรวจสอบให้แน่ใจว่าสะกดทุกคำถูกต้อง",
+				"description2": "ลองใช้คำค้นหาอื่น",
+				"description3": "ลองใช้คำค้นหาที่ครอบคลุมกว่านี้",
+				"backButton": "กลับสู่เพจก่อนหน้า"
+			},
+			"success": "{{total}} ผลลัพธ์สำหรับ ''{{keyword}}''"
+		},
+		"documentPage": {
+			"title": "เอกสาร",
+			"breadCrumbs": {
+				"home": "แผงควบคุม",
+				"documentList": "รายการเอกสาร",
+				"documentAdd": "เพิ่ม",
+				"documentEdit": "แก้ไข"
+			},
+			"topic": "รายการเอกสาร",
+			"search": {
+				"notfound": {
+					"title": "ขออภัย ไม่พบผลลัพธ์สำหรับ ''{{keyword}}''",
+					"subTitle": "ลองปรับคำค้นหาของคุณ นี่คือความคิดเห็นบางส่วน:",
+					"description1": "ตรวจสอบให้แน่ใจว่าสะกดทุกคำถูกต้อง",
+					"description2": "ลองใช้คำค้นหาอื่น",
+					"description3": "ลองใช้คำค้นหาที่ครอบคลุมกว่านี้"
+				},
+				"success": "{{total}} ผลลัพธ์สำหรับ ''{{keyword}}''"
+			},
+			"addEdit": {
+				"topic": "{{label}} เอกสาร",
+				"categorySelectBox": "--- โปรดเลือกประเภทเอกสาร ---",
+				"documentNameBox": "ชื่อ - เอกสาร",
+				"documentDescriptionBox": "คำอธิบาย",
+				"invalidInput": "ต้องกรอกข้อมูลช่องนี้ด้วย",
+				"submitButton": "ยืนยัน"
+			}
+		},
+		"categoryPage": {
+			"title": "หมวดหมู่ เอกสาร",
+			"breadCrumbs": {
+				"home": "แผงควบคุม",
+				"categoryList": "หมวดหมู่เอกสาร",
+				"categoryAdd": "เพิ่ม",
+				"categoryEdit": "แก้ไข"
+			},
+			"searchBox": "ค้นหา...",
+			"addEdit": {
+				"topic": "{{label}}หมวดหมู่",
+				"categoryNameBox": "ชื่อ",
+				"categoryDescriptionBox": "คำอธิบาย",
+				"invalidInput": "ต้องกรอกข้อมูลช่องนี้ด้วย",
+				"submitButton": "ยืนยัน"
+			}
+		},
+		"dashboardPage": {
+			"title": "แผงควบคุม",
+			"topic": "คุณสมบัตินี้",
+			"description": "เราจะเพิ่มเติมเร็วๆ นี้"
+		},
+		"drawerMenu": {
+			"dashboard": "แผงควบคุม",
+			"documentCategory": {
+				"document": "เอกสาร",
+				"category": "หมวดหมู่",
+				"all": "ทั้งหมด",
+				"add": "เพิ่ม",
+				"edit": "แก้ไข"
+			},
+			"setting": {
+				"title": "การตั้งค่า",
+				"theme": "โทนสีแอป",
+				"language": "ภาษา",
+				"notify": "การแจ้งเตือน"
+			}
+		}
+	},
+	"Table": {
+		"document": {
+			"doc-id": "รหัสเอกสาร",
+			"doc-name": "ชื่อเอกสาร",
+			"file-size": "ขนาดเอกสาร",
+			"doc-type": "หมวดหมู่",
+			"actived-date": "วันอัปโหลด"
+		},
+		"category": {
+			"categoryId": "รหัส - หมวดหมู่เอกสาร",
+			"categoryName": "ชื่อ - หมวดหมู่",
+			"description": "รายละเอียด"
+		},
+		"pagination": {
+			"filter-perpage-title1": "แสดงข้อมูล",
+			"filter-perpage-title2": "ค่า / หน้า"
+		}
 	}
 }

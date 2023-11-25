@@ -37,7 +37,7 @@
 		"title": "Search documents",
 		"topic": "Document Results",
 		"input-search": "Search...",
-		"data-not-found": "Document NotFound",
+		"data-not-found": "Document Not Found",
 		"filter-search": {
 			"title": "Filter Documents",
 			"document-id": "Document Id",
@@ -62,5 +62,117 @@
 	},
 	"Loader": {
 		"title": "Waiting..."
+	},
+	"Dashboard": {
+		"title": "Dashboard page",
+		"modal": {
+			"infoTitle": "Remove data",
+			"errorTitle": "!Oops, something went wrong.",
+			"infoDescription": "Are you sure you want to remove this field?",
+			"okButtonLabel": "OK",
+			"cancelButtonLabel": "CANCEL"
+		},
+		"progress": {
+			"success": "{{keyword}} is successfully.",
+			"error": "Error - {{keyword}}"
+		},
+		"navbar": {
+			"textSearchPlaceholder": "Search..."
+		},
+		"search": {
+			"notfound": {
+				"title": "Sorry, we couldn't find any results for ''{{keyword}}''",
+				"subTitle": "Try adjusting your search. Here are some ideas:",
+				"description1": "Make sure all words are spelled correctly",
+				"description2": "Try different search terms",
+				"description3": "Try more general search terms",
+				"backButton": "Back to previous page"
+			},
+			"success": "{{total}} Results for ''{{keyword}}''"
+		},
+		"documentPage": {
+			"title": "Documents",
+			"breadCrumbs": {
+				"home": "Dashboard",
+				"documentList": "Documents",
+				"documentAdd": "Add",
+				"documentEdit": "Edit"
+			},
+			"topic": "Documents List",
+			"search": {
+				"notfound": {
+					"title": "Sorry, we couldn't find any results for ''{{keyword}}''",
+					"subTitle": "Try adjusting your search. Here are some ideas:",
+					"description1": "Make sure all words are spelled correctly",
+					"description2": "Try different search terms",
+					"description3": "Try more general search terms"
+				},
+				"success": "{{total}} Results for ''{{keyword}}''"
+			},
+			"addEdit": {
+				"topic": "{{label}} Document",
+				"categorySelectBox": "--- Choose the Category ---",
+				"documentNameBox": "Document name",
+				"documentDescriptionBox": "Description",
+				"invalidInput": "This field is require.",
+				"submitButton": "SUBMIT"
+			}
+		},
+		"categoryPage": {
+			"title": "Categories",
+			"breadCrumbs": {
+				"home": "Dashboard",
+				"categoryList": "Categories",
+				"categoryAdd": "Add",
+				"categoryEdit": "Edit"
+			},
+			"searchBox": "Search...",
+			"addEdit": {
+				"topic": "{{label}} Category",
+				"categoryNameBox": "Category name",
+				"categoryDescriptionBox": "Description",
+				"invalidInput": "This field is require.",
+				"submitButton": "SUBMIT"
+			}
+		},
+		"dashboardPage": {
+			"title": "Dashboard",
+			"topic": "This Feature",
+			"description": "is coming soon..."
+		},
+		"drawerMenu": {
+			"dashboard": "Dashboard",
+			"documentCategory": {
+				"document": "Document",
+				"category": "Category",
+				"all": "All",
+				"add": "Add",
+				"edit": "Edit"
+			},
+			"setting": {
+				"title": "Settings",
+				"theme": "Theme",
+				"language": "Languages",
+				"notify": "Notification"
+			}
+		}
+	},
+	"Table": {
+		"document": {
+			"doc-id": "Document Id",
+			"doc-name": "Document Name",
+			"file-size": "File Size",
+			"doc-type": "Category",
+			"actived-date": "Actived Date"
+		},
+		"category": {
+			"categoryId": "Category Id",
+			"categoryName": "Category Name",
+			"description": "Description"
+		},
+		"pagination": {
+			"filter-perpage-title1": "Display",
+			"filter-perpage-title2": "Data / Page"
+		}
 	}
 }

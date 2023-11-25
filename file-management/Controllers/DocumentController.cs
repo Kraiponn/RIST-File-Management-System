@@ -45,12 +45,13 @@ namespace file_management.Controllers
        *   @Access            Private
        ***************************************************************************************************************/
 		[HttpPost]
-		public async Task<ActionResult<APIResponseDto>> Create([FromForm] CreateDocumentRequestDto dto, IFormFile file)
+		// public async Task<ActionResult<APIResponseDto>> Create([FromForm] CreateDocumentRequestDto dto, IFormFile file)
+		public async Task<ActionResult<APIResponseDto>> Create([FromForm] CreateDocumentRequestDto dto)
 		{
 			try
 			{
 				// Validate file extensions
-				this.ValidateFile(file);
+				this.ValidateFile(dto.File);
 
 				if (!ModelState.IsValid)
 				{
@@ -65,7 +66,7 @@ namespace file_management.Controllers
 					return BadRequest(_apiResponseDto);
 				}
 
-				var fileExtension = Path.GetExtension(file.FileName);
+				var fileExtension = Path.GetExtension(dto.File.FileName);
 				var filePrefixed = fileExtension.Substring(1).ToUpper();
 				var fileName = $"{filePrefixed}-{Guid.NewGuid()}";
 				var uploadPath = this.GetUploadPath(fileExtension);
@@ -73,11 +74,11 @@ namespace file_management.Controllers
 
 				var fileDto = new FileRequestDto
 				{
-					File = file,
+					File = dto.File,
 					FileName = fileName + fileExtension,
 					Extension = fileExtension,
 					Path = localPath,
-					SizeInBytes = file.Length
+					SizeInBytes = dto.File.Length
 				};
 
 				// Record to Database
@@ -88,7 +89,7 @@ namespace file_management.Controllers
 					Description = dto.Description ?? "",
 					Path = Path.Combine(uploadPath, fileName + fileExtension),
 					Extension = fileExtension,
-					SizeInBytes = file.Length,
+					SizeInBytes = dto.File.Length,
 					DocumentCategoryId = dto.DocumentCategoryId
 				};
 
@@ -139,7 +140,6 @@ namespace file_management.Controllers
 			[FromQuery] int pageSize = 25
 		)
 		{
-
 			try
 			{
 				(long total, List<Document> data, int _pageNo, int _pageSize) = await _documentRepository.GetAllAsync(
@@ -231,8 +231,8 @@ namespace file_management.Controllers
 		[Route("{documentId}")]
 		public async Task<ActionResult<APIResponseDto>> Update(
 			[FromRoute] string documentId,
-			[FromForm] UpdateDocumentRequestDto updateDocumentRequestDto,
-			IFormFile? file
+			[FromForm] UpdateDocumentRequestDto updateDocumentRequestDto
+		// IFormFile? file
 		)
 		{
 			try
@@ -250,10 +250,10 @@ namespace file_management.Controllers
 				}
 
 				// Check new attached file
-				if (file?.Length > 0 && file != null)
+				if (updateDocumentRequestDto.File?.Length > 0 && updateDocumentRequestDto.File != null)
 				{
 					// Validate file extensions
-					this.ValidateFile(file);
+					this.ValidateFile(updateDocumentRequestDto.File);
 
 					if (!ModelState.IsValid)
 					{
@@ -271,7 +271,7 @@ namespace file_management.Controllers
 					// Remove old file from the upload path
 					_fileManager.RemoveFile(Path.Combine(_webHost.WebRootPath, existingDocument.Path));
 
-					var fileExtension = Path.GetExtension(file.FileName);
+					var fileExtension = Path.GetExtension(updateDocumentRequestDto.File.FileName);
 					var filePrefixed = fileExtension.Substring(1).ToUpper();
 					var fileName = existingDocument.DocumentId.ToString();
 					var uploadPath = this.GetUploadPath(fileExtension);
@@ -279,11 +279,11 @@ namespace file_management.Controllers
 
 					var fileDto = new FileRequestDto
 					{
-						File = file,
+						File = updateDocumentRequestDto.File,
 						FileName = fileName + fileExtension,
 						Extension = fileExtension,
 						Path = localPath,
-						SizeInBytes = file.Length
+						SizeInBytes = updateDocumentRequestDto.File.Length
 					};
 
 					// Uploaded new file to api path
@@ -292,7 +292,7 @@ namespace file_management.Controllers
 					// Set update document dto to update to database
 					updateDocumentRequestDto.Path = Path.Combine(uploadPath, fileName + fileExtension);
 					updateDocumentRequestDto.Extension = fileExtension;
-					updateDocumentRequestDto.SizeInBytes = file.Length;
+					updateDocumentRequestDto.SizeInBytes = updateDocumentRequestDto.File.Length;
 				}
 
 				updateDocumentRequestDto.ActivedDate = DateTime.Now;

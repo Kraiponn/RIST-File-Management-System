@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { HashLoader, PropagateLoader, RotateLoader } from "react-spinners";
+import { HashLoader, PropagateLoader, RotateLoader, PacmanLoader } from "react-spinners";
 
 type IProps = {
 	isLoading: boolean,
@@ -25,6 +25,17 @@ const override: CSSProperties = {
 export default function Loading({ isLoading, color, size, speed, loaderType } : IProps) {
 	const handleLoaderType = () => {
 		switch (loaderType) {
+			case 'Pacman':
+				return (
+					<PacmanLoader
+						color={color}
+						loading={isLoading}
+						cssOverride={override}
+						size={size}
+						speedMultiplier={speed}
+						aria-label="Loading Spinner"
+						data-testid="loader"/>
+				)
 			case 'Hash':
 				return (
 					<HashLoader

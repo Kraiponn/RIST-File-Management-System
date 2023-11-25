@@ -11,5 +11,7 @@ namespace file_management.Models.DTOs
 
         [Required]
         public Guid DocumentCategoryId { get; set; }
+
+		public IFormFile File { get; set; }
     }
 }
