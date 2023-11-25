@@ -12,17 +12,19 @@
 
 ## These are the technologies I've worked with
 ```bash
-  $ Backend & Database
+  $ Backend (file-management)
       - ASP.NET(C#) Web API Version 7.xx
       - Type ORM => Entity Framework 7.xx
       - SQL Server Database
 
-  $ Frontend
+  $ Frontend (file-management-ui)
       - React(Vite +TypeScript)   => Javascript Library
+	  - Material UI + Tailwind CSS	=> CSS Framework
 ```
 
 ## Project Previews
 <br/>
+# ER-Diagram
 <div style="width:100%; margin-top:3rem;display:flex;justify-content:center;">
   <image 
     src="./documents/images/ER-Diagram.png"
@@ -123,8 +125,8 @@
 ## About Me
 ```bash
     Author: Kraipon Najaroon
-    Jobs    : Full stack developer in web and mobile technology.
-    Email    : kraipon.na10@gmail.com, kraipon_na10@hotmail.com
-    Tel       : 095-7396209
-	Portfolio : https://codemakerlab-portfolio-pk0ewcj2k-kraiponn.vercel.app/	
+    Jobs: Full stack developer in web and mobile technology.
+    Email: kraipon.na10@gmail.com, kraipon_na10@hotmail.com
+    Tel: 095-7396209
+	Portfolio: https://codemakerlab-portfolio-pk0ewcj2k-kraiponn.vercel.app/	
 ```
