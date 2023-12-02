@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios';
+import { ILocale } from '@/interfaces';
 
-function getResponseMessage(error: AxiosError, locale: 'en' | 'th') {
+function getResponseMessage(error: AxiosError, locale: ILocale) {
 	const response = error.response;
 	let message = '';
 
@@ -19,7 +20,7 @@ function getResponseMessage(error: AxiosError, locale: 'en' | 'th') {
 	return message;
 }
 
-export const getErrorResponse = (error: AxiosError, locale: 'en' | 'th') => {
+export const getErrorResponse = (error: AxiosError, locale: ILocale) => {
 	let errMessage = '';
 
 	if (error.response) {

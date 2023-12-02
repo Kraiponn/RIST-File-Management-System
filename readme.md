@@ -20,6 +20,8 @@
   $ Frontend (file-management-ui)
       - React(Vite +TypeScript)   => Javascript Library
 	  - Material UI + Tailwind CSS	=> CSS Framework
+	  - Localizations => React-i18Next
+	  - Zustand	=> State management
 ```
 
 ## Project Previews

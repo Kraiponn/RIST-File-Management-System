@@ -9,7 +9,7 @@ export default function DocumentDashboard() {
 	const { t } = useTranslation();
 
 	return (
-		<DashboardLayout title={t('Dashboard.documentPage.title')}>
+		<DashboardLayout title={t(`Dashboard.documentPage.title`)}>
 			<Outlet />
 		</DashboardLayout>
 	)

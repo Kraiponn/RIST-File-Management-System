@@ -5,12 +5,13 @@ import PageNotFound from '@/pages/notFound'
 
 import DashboardHomePage from '@/pages/dashboard'
 
-import DocumentDashboard from '@/pages/dashboard/document'
+import PrivateRoute from '@/features/secured/privateRoute'
+// import DocumentDashboard from '@/pages/dashboard/document'
 import DocumentListPage from '@/pages/dashboard/document/document-list'
 import AddDocumentPage from '@/pages/dashboard/document/add-document'
 import EditDocumentPage from '@/pages/dashboard/document/edit-document'
 
-import DashboardCategory from '@/pages/dashboard/category'
+// import DashboardCategory from '@/pages/dashboard/category'
 import CategoryListPage from '@/pages/dashboard/category/category-list'
 import AddCategoryPage from '@/pages/dashboard/category/add-category'
 import EditCategoryPage from '@/pages/dashboard/category/edit-category'
@@ -24,13 +25,13 @@ export default function App() {
 			<Routes>
 				<Route path='/search' element={<Search />} />
 				<Route path='/dashboard' element={<DashboardHomePage />} />
-				<Route path='dashboard/documents' element={<DocumentDashboard />}>
+				<Route path='dashboard/documents' element={<PrivateRoute />}>
 					<Route index element={<DocumentListPage />} />
 					<Route path='add' element={<AddDocumentPage/>} />
 					<Route path='edit' element={<EditDocumentPage/>} />
 					<Route path='edit/:documentId' element={<EditDocumentPage/>} />
 				</Route>
-				<Route path='dashboard/categories' element={<DashboardCategory />}>
+				<Route path='dashboard/categories' element={<PrivateRoute />}>
 					<Route index element={<CategoryListPage />} />
 					<Route path='add' element={<AddCategoryPage/>} />
 					<Route path='edit' element={<EditCategoryPage/>} />
